@@ -5,12 +5,12 @@ print(image.shape)
 image = cv2.resize(image, (800, 600))
 img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-face_detector = cv2.CascadeClassifier("./haarcascade_frontalface_default.xml")
+face_detector = cv2.CascadeClassifier("./haarcascade_frontalface_default.02.voc_to_yolo")
 face_detection = face_detector.detectMultiScale(img_gray, scaleFactor=1.09, minNeighbors=10)
 for (x, y, w, h) in face_detection:
     cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-eye_detector = cv2.CascadeClassifier("./haarcascade_eye.xml")
+eye_detector = cv2.CascadeClassifier("./haarcascade_eye.02.voc_to_yolo")
 eye_detection = eye_detector.detectMultiScale(img_gray, scaleFactor=1.09, minNeighbors=10, maxSize=(72, 72))
 for (x, y, w, h) in eye_detection:
     print(w, h)
